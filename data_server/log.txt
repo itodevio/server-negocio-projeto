@@ -1,0 +1,14 @@
+Timestamp:2021-10-29 15:51:16.685633 - OperationNumber: 1 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 15:51:17.254065 - OperationNumber: 2 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 15:51:19.684420 - OperationNumber: 3 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: setbalance - Account: 4521 - Value: 100
+Timestamp:2021-10-29 15:51:20.363289 - OperationNumber: 4 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: setbalance - Account: 4521 - Value: 100
+Timestamp:2021-10-29 15:51:21.214155 - OperationNumber: 5 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: setbalance - Account: 4521 - Value: 100
+Timestamp:2021-10-29 15:51:26.285841 - OperationNumber: 6 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: setbalance - Account: 4521 - Value: -500
+Timestamp:2021-10-29 17:33:43.145382 - OperationNumber: 1 - BusinessServerID: ed0eefc4-80c3-42d2-84fe-9c27b18fa811 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:41:40.348150 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:41:40.350063 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:43:39.515983 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:43:39.518186 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:45:54.926790 - OperationNumber: 3 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:46:49.035047 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:46:49.036981 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
