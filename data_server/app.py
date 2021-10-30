@@ -6,22 +6,22 @@ app = Flask(__name__)
 operation_number = 1
 
 accounts = {
-    2421: {
+    1: {
         "balance": 500,
         "is_lock": False,
         "lockedBy": ""
     },
-    9657: {
+    2: {
         "balance": 123,
         "is_lock": False,
         "lockedBy": ""
     },
-    2181: {
+    3: {
         "balance": 435,
         "is_lock": False,
         "lockedBy": ""
     },
-    4521: {
+    4: {
         "balance": 847,
         "is_lock": False,
         "lockedBy": ""
@@ -55,7 +55,7 @@ def getBalance(business_id, account_id):
     if(not business_id or not account_id):
         return "business_id and account_id is required", 400
 
-    if(accounts[account_id]["is_lock"] == True):
+    if(accounts[account_id]["is_lock"] == True and accounts[account_id]['lockedby'] != business_id):
         return "-1", 400
 
     accounts[account_id]["is_lock"] = True
@@ -64,7 +64,6 @@ def getBalance(business_id, account_id):
 
     logOperation(business_id, "getBalance", account_id, 0)
     operation_number += 1
-    accounts[account_id]["is_lock"] = False
 
     return response, 200
 
@@ -80,20 +79,20 @@ def setBalance():
         return "business_id, account_id and value is required", 400
 
     business_id = request.json["business_id"]
-    account_id = request.json["account_id"]
-    value = request.json["value"]
+    account_id = int(request.json["account_id"])
+    value = int(request.json["value"])
 
-    if(accounts[account_id]["is_lock"] == True):
+    if(accounts[account_id]["is_lock"] == True and accounts[account_id]['lockedby'] != business_id):
         return "-1", 400
 
     accounts[account_id]["is_lock"] = True
+    accounts[account_id]["lockedby"] = business_id
     accounts[account_id]["balance"] = accounts[account_id]["balance"] + value
     response = jsonify(account=account_id,
                        balance=accounts[account_id]["balance"])
 
     logOperation(business_id, "setbalance", account_id, value)
     operation_number += 1
-    accounts[account_id]["is_lock"] = False
 
     return response, 200
 
@@ -108,7 +107,8 @@ def getLock(business_id, account_id):
     if(not business_id or not account_id):
         return "business_id and account_id is required", 400
 
-    response = accounts[account_id]["is_lock"] == True and -1 or 1
+    response = (accounts[account_id]["is_lock"] ==
+                True and accounts[account_id]['lockedby'] != business_id) and '-1' or '1'
     logOperation(business_id, "getlock", account_id, 0)
     operation_number += 1
 
@@ -126,16 +126,16 @@ def unLock():
         return "business_id and account_id is required", 400
 
     business_id = request.json["business_id"]
-    account_id = request.json["account_id"]
+    account_id = int(request.json["account_id"])
 
-    if(accounts[account_id]["lockedBy"] == account_id):
+    if(accounts[account_id]["lockedBy"] == business_id):
         logOperation(business_id, "unLock", account_id, 0)
         operation_number += 1
         accounts[account_id]["is_lock"] = False
-        return 1, 200
+        return '1', 200
     else:
         return "-1", 400
 
 
 # if __name__ == "__main__":
-#     app.run(host='0.0.0.0')
+#     app.run(port='8080')

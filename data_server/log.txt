@@ -11,4 +11,18 @@ Timestamp:2021-10-29 17:43:39.515983 - OperationNumber: 1 - BusinessServerID: 1 
 Timestamp:2021-10-29 17:43:39.518186 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
 Timestamp:2021-10-29 17:45:54.926790 - OperationNumber: 3 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
 Timestamp:2021-10-29 17:46:49.035047 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
-Timestamp:2021-10-29 17:46:49.036981 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0
+Timestamp:2021-10-29 17:46:49.036981 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 4521 - Value: 0Timestamp:2021-10-29 23:57:56.459493 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 2 - Value: 0
+Timestamp:2021-10-29 23:57:58.505494 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 2 - Value: 0
+Timestamp:2021-10-29 23:58:27.374490 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 2 - Value: 0
+Timestamp:2021-10-29 23:58:29.420491 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 2 - Value: 0
+Timestamp:2021-10-29 23:59:36.965312 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 2 - Value: 0
+Timestamp:2021-10-29 23:59:39.007313 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 2 - Value: 0
+Timestamp:2021-10-30 00:00:14.489385 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 2 - Value: 0
+Timestamp:2021-10-30 00:00:16.540386 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getBalance - Account: 2 - Value: 0
+Timestamp:2021-10-30 00:01:05.070551 - OperationNumber: 3 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-30 00:01:52.679750 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 2 - Value: 0
+Timestamp:2021-10-30 00:01:54.732785 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-30 00:02:25.919216 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 2 - Value: 0
+Timestamp:2021-10-30 00:02:27.951215 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-30 00:02:29.995214 - OperationNumber: 3 - BusinessServerID: 1 - OperationType: setbalance - Account: 2 - Value: -300
+Timestamp:2021-10-30 00:02:32.035216 - OperationNumber: 4 - BusinessServerID: 1 - OperationType: setbalance - Account: 1 - Value: 300
