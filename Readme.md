@@ -1,3 +1,10 @@
+Grupo:
+- Rafael Lucas Alencar - 31986773
+- Roberto Tsuneki Sá Freire - 31946968
+- Ítalo Assunção Aguiar - 31928900
+- Felipe Augusto Alves Retondar - 31617212
+
+
 # Servidor de dados /data_server
 
 Implementado em Python o servidor de dados é uma API RESTful que utiliza o framework Flask.
