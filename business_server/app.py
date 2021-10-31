@@ -5,9 +5,14 @@ import os
 from datetime import datetime
 app = Flask(__name__)
 
-db_url = os.getenv('DB_URL')
-db_auth_token = os.getenv('DB_AUTH_TOKEN')
-server_id = os.getenv('SERVER_ID')
+# db_url = os.getenv('DB_URL')
+# db_auth_token = os.getenv('DB_AUTH_TOKEN')
+# server_id = os.getenv('SERVER_ID')
+
+db_url = "http://127.0.0.1:5001"
+db_auth_token = "c6aa1a9d-1f91-4306-b61d-6a2c7ed7ede4"
+server_id = 1
+
 
 client_auth_tokens = [
     '758baa7e-4823-4769-80ac-cd277a9adcb2',
@@ -38,7 +43,7 @@ def logOperation(client_id, operation, value, acnt1, acnt2=None):
 @app.route("/deposito/<acnt>/<amt>", methods=["POST"])
 def deposito(acnt, amt):
     if request.headers['auth-token'] not in client_auth_tokens or not request.headers['client-id']:
-        return jsonify("Forbidden"), 403
+        return jsonify("Unauthorized"), 403
 
     try:
         requests.get(f'{db_url}/getlock/{server_id}/{acnt}',
@@ -60,7 +65,7 @@ def deposito(acnt, amt):
 @app.route("/saque/<acnt>/<amt>", methods=["POST"])
 def saque(acnt, amt):
     if request.headers['auth-token'] not in client_auth_tokens or not request.headers['client-id']:
-        return jsonify("Forbidden"), 403
+        return jsonify("Unauthorized"), 403
 
     try:
         requests.get(f'{db_url}/getlock/{server_id}/{acnt}',
@@ -83,7 +88,7 @@ def saque(acnt, amt):
 @app.route("/saldo/<acnt>", methods=["GET"])
 def saldo(acnt):
     if request.headers['auth-token'] not in client_auth_tokens or not request.headers['client-id']:
-        return jsonify("Forbidden"), 403
+        return jsonify("Unauthorized"), 403
 
     try:
         requests.get(f'{db_url}/getlock/{server_id}/{acnt}',
@@ -104,7 +109,7 @@ def saldo(acnt):
 @app.route("/transferencia/<acnt_orig>/<acnt_dest>/<amt>", methods=["POST"])
 def transferencia(acnt_orig, acnt_dest, amt):
     if request.headers['auth-token'] not in client_auth_tokens or not request.headers['client-id']:
-        return jsonify("Forbidden"), 403
+        return jsonify("Unauthorized"), 403
 
     try:
         requests.get(f'{db_url}/getlock/{server_id}/{acnt_orig}',
@@ -132,7 +137,3 @@ def transferencia(acnt_orig, acnt_dest, amt):
     except Exception as err:
         print(err)
         return jsonify({'error': 'Não foi possível realizar a chamada'}), 400
-
-
-# if __name__ == "__main__":
-#     app.run(port='8000')
