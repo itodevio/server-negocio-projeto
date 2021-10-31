@@ -5,14 +5,9 @@ import os
 from datetime import datetime
 app = Flask(__name__)
 
-# db_url = os.getenv('DB_URL')
-# db_auth_token = os.getenv('DB_AUTH_TOKEN')
-# server_id = os.getenv('SERVER_ID')
-
-db_url = "http://127.0.0.1:5001"
-db_auth_token = "c6aa1a9d-1f91-4306-b61d-6a2c7ed7ede4"
+db_url = 'http://34.74.56.41'
+db_auth_token = 'ed0eefc4-80c3-42d2-84fe-9c27b18fa811'
 server_id = 1
-
 
 client_auth_tokens = [
     '758baa7e-4823-4769-80ac-cd277a9adcb2',
