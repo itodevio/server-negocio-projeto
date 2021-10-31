@@ -1,28 +1,41 @@
-# Projeto - Banco Distribuído com WebServices
+# Amostra - Banco Distribuído com WebServices
 
-Objetivo: implementar um Sistema de Banco Distribuído que consistirá  em:  
-- Servidor de dados (banco de dados)
-- Três (ou mais) servidores de negócio (responsáveis  pela conexão com o cliente e com o servidor de dados)
-- Vários clientes, implementados em Python (e opcionalmente,  em mais uma linguagem de programação diferente)
+Para testar o sistema de banco distribuido criou-se um script Cliente que executa chamadas assíncronas e concorrentes para cada endpoint dos Servidores de Negócio acessado por meio de um load balancer implementado diretamente no Google Cloud.
 
-![Distribuição das maquinas do Sistema de Banco Distribuido](https://i.imgur.com/yRPn2zh.png)
+## Execução do script Cliente
 
-## Descrição do projeto
-- O intuito do projeto é criar um sistema bancário simples baseado em microsserviços, que conta com um servidor de dados que lida com o banco de dados num sistema de `lock`, onde uma conta fica bloqueada assim que algum servidor começa a alterá-la, e apenas esse mesmo servidor pode remover a trava.
-- Para se comunicar com o servidor de dados, o projeto também conta com **três** servidores de negócio, que vão ser o intermediador entre os clientes e o servidor de dados. Para isso, deve-se autenticar a conexão com os headers `auth-token` e `business-id`. Esses servidores lidam com a lógica de negócio de `filas`, chamadas na api do servidor de dados e retorno para os clientes.
-- Por último, os clientes representam pessoas tentando acessar e modificar dados das contas bancárias. Para que os clientes possam interagir com as contas, devem se autenticar com os headers `auth-token` e `client-id`. Dependendo do estado de lock da conta que se deseja alterar, o cliente receberá um erro, ao invés do estado desejado.
+Ao executar o script as requisições são enviadas ao servidores. Para testar o caso de falta de autenticação criou-se um array de tokens e no meio desses tokens alguns tokens falsos, na imagem é possivel ver as requisições com falha de token pela response "Forbidden".
 
-## Funcionamento
+![Print da execução do script Cliente](https://i.imgur.com/hmjym3b.png)
 
-#### Servidor de dados
-Recebe as requisições dos servidores de negócio, trata os dados e os headers para autenticação, verifica o estado de lock da conta atuante e aplica modificações em caso de sucesso. Envia erro em caso de falha.
-  
-#### Servidores de negócios
-Recebem as requisições dos clientes, trata os dados e os headers para autenticação e envia as instruções para o servidor de dados. Envia os dados em caso de sucesso e erro em caso de falha.
+## Logs de execução
 
-#### Cientes
-Simplesmente definem um pedido (como por exemplo transferir X valor da conta Y para a conta Z), envia a solicitação para o load balancer que replica a requisição para os servidores de negócio.
+- Servidor de negócio
 
+```{r}
+Timestamp:2021-10-31 13:13:45.087371 - OperationNumber: 1 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
+Timestamp:2021-10-31 13:13:46.223686 - OperationNumber: 2 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
+Timestamp:2021-10-31 13:13:47.284277 - OperationNumber: 3 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
+Timestamp:2021-10-31 13:15:11.534692 - OperationNumber: 4 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
+Timestamp:2021-10-31 13:15:12.722339 - OperationNumber: 5 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
+Timestamp:2021-10-31 13:16:27.637879 - OperationNumber: 6 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
+Timestamp:2021-10-31 13:16:35.086740 - OperationNumber: 7 - ClientID: 1 - OperationType: Deposito - Account: 1 - Value: 100
+Timestamp:2021-10-31 13:18:18.005728 - OperationNumber: 8 - ClientID: 5 - OperationType: Deposito - Account: 9 - Value: 299
+Timestamp:2021-10-31 13:18:18.013317 - OperationNumber: 9 - ClientID: 4 - OperationType: Saldo - Account: 6 - Value: N/A
+Timestamp:2021-10-31 13:18:18.014164 - OperationNumber: 10 - ClientID: 3 - OperationType: Saque - Account: 2 - Value: 146
+```
 
-## Possíveis extensões
-- Implementação de um banco de dados com atomicidade nativa, como o Redis, MongoDB etc num servidor separado, para que o sistema de lock se resolva mais facilmente e os dados deixem de ser `inmemory` e se tornem `permanentes`.
+- Servidor de dados
+
+```{r}
+Timestamp:2021-10-31 16:05:13.640164 - OperationNumber: 1 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.642598 - OperationNumber: 2 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.644029 - OperationNumber: 3 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.644678 - OperationNumber: 4 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.645480 - OperationNumber: 5 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.645859 - OperationNumber: 6 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.646419 - OperationNumber: 7 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.646450 - OperationNumber: 8 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.647100 - OperationNumber: 9 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+Timestamp:2021-10-31 16:05:13.647118 - OperationNumber: 10 - BusinessServerID: 1 - OperationType: getlock - Account: 1 - Value: 0
+```

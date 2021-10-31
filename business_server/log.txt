@@ -1,15 +1,3 @@
-Timestamp:2021-10-29 23:54:49.576247 - OperationNumber: 1 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:55:18.039281 - OperationNumber: 1 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:55:35.378320 - OperationNumber: 2 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:55:53.907344 - OperationNumber: 3 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:57:10.101971 - OperationNumber: 4 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:57:58.506491 - OperationNumber: 5 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:58:29.422492 - OperationNumber: 6 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-29 23:59:39.009312 - OperationNumber: 7 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-30 00:00:16.542384 - OperationNumber: 8 - ClientID: 2 - OperationType: Saldo - Account: 2 - Value: N/A
-Timestamp:2021-10-30 00:01:13.255527 - OperationNumber: 9 - ClientID: 2 - OperationType: Transferencia - Account1: 2 - Account2: 1 - Value: 300
-Timestamp:2021-10-30 00:02:02.894788 - OperationNumber: 10 - ClientID: 2 - OperationType: Transferencia - Account1: 2 - Account2: 1 - Value: 300
-Timestamp:2021-10-30 00:02:36.122658 - OperationNumber: 11 - ClientID: 2 - OperationType: Transferencia - Account1: 2 - Account2: 1 - Value: 300
 Timestamp:2021-10-31 13:13:45.087371 - OperationNumber: 1 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
 Timestamp:2021-10-31 13:13:46.223686 - OperationNumber: 2 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
 Timestamp:2021-10-31 13:13:47.284277 - OperationNumber: 3 - ClientID: 1 - OperationType: Saldo - Account: 3 - Value: N/A
@@ -19,7 +7,7 @@ Timestamp:2021-10-31 13:16:27.637879 - OperationNumber: 6 - ClientID: 1 - Operat
 Timestamp:2021-10-31 13:16:35.086740 - OperationNumber: 7 - ClientID: 1 - OperationType: Deposito - Account: 1 - Value: 100
 Timestamp:2021-10-31 13:18:18.005728 - OperationNumber: 8 - ClientID: 5 - OperationType: Deposito - Account: 9 - Value: 299
 Timestamp:2021-10-31 13:18:18.013317 - OperationNumber: 9 - ClientID: 4 - OperationType: Saldo - Account: 6 - Value: N/A
-Timestamp:2021-10-31 13:18:18.014164 - OperationNumber: 9 - ClientID: 3 - OperationType: Saque - Account: 2 - Value: 146
+Timestamp:2021-10-31 13:18:18.014164 - OperationNumber: 10 - ClientID: 3 - OperationType: Saque - Account: 2 - Value: 146
 Timestamp:2021-10-31 13:18:18.016449 - OperationNumber: 11 - ClientID: 3 - OperationType: Saldo - Account: 1 - Value: N/A
 Timestamp:2021-10-31 13:18:18.019103 - OperationNumber: 12 - ClientID: 3 - OperationType: Saldo - Account: 1 - Value: N/A
 Timestamp:2021-10-31 13:18:18.020773 - OperationNumber: 13 - ClientID: 4 - OperationType: Deposito - Account: 9 - Value: 53
