@@ -53,7 +53,7 @@ Para realizar o deploy da API é necessário configurar uma maquina com NGINX e 
   WantedBy=multi-user.target
   ```
 
-# Servidor de negócio
+# Servidor de negócio /business_server
 
 Assim como o servidor de dados, o servidor de negócio é uma API RESTful, desenvolvida em Python, que utiliza o framework Flask.
 Para realizar o deploy da API é necessário configurar uma maquina com NGINX e WSGI. No ambiente de testes foi utilizada a nuvem Google Cloud com instâncias de Compute Engine.
